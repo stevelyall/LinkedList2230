@@ -22,6 +22,8 @@ public class LinkedListTester {
         System.out.println("Is empty true? " + ordered.isEmpty());
         System.out.println("Is size 0? " + ordered.size());
 
+        System.out.println("Contains 3? " + ordered.contains(3));
+
         System.out.println("Adding 1...");
         ordered.add(1);
 
@@ -32,6 +34,8 @@ public class LinkedListTester {
         System.out.println("Adding 2...");
         ordered.add(2);
 
+        System.out.println("Contains 2? " + ordered.contains(2));
+
         System.out.println("Is empty false? " + ordered.isEmpty());
         System.out.println("Is size 2? " + ordered.size());
 
@@ -39,8 +43,10 @@ public class LinkedListTester {
         System.out.println(ordered);
         System.out.println();
 
-        System.out.println("Adding 3...");
+        System.out.println("Adding 5...");
         ordered.add(5);
+
+        System.out.println("Contains 5? " + ordered.contains(5));
 
         System.out.println("Printing the list...");
         System.out.println(ordered);
@@ -61,6 +67,9 @@ public class LinkedListTester {
         System.out.println(ordered);
         System.out.println();
 
+        System.out.println("Is empty false? " + ordered.isEmpty());
+        System.out.println("Is size 5? " + ordered.size());
+
         System.out.println("Removing 4...");
         ordered.remove(4);
 
@@ -68,6 +77,8 @@ public class LinkedListTester {
         System.out.println("Printing the list...");
         System.out.println(ordered);
         System.out.println();
+
+        System.out.println("Contains 4? " + ordered.contains(4));
 
         System.out.println("Removing last element...");
         ordered.removeLast();
@@ -84,6 +95,9 @@ public class LinkedListTester {
         System.out.println("Printing the list...");
         System.out.println(ordered);
         System.out.println();
+
+        System.out.println("Is empty false? " + ordered.isEmpty());
+        System.out.println("Is size 2? " + ordered.size());
 
 
 
@@ -108,9 +122,6 @@ public class LinkedListTester {
 
         System.out.println("Adding 2 to the front of the list...");
         list.addToFront(2);
-
-        System.out.println("Is empty false? " + list.isEmpty());
-        System.out.println("Is size 2? " + list.size());
 
         System.out.println();
         System.out.println("Printing the list...");

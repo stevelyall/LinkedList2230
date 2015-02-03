@@ -35,24 +35,20 @@ public class LinkedOrderedList<T> extends LinkedList<T>
     public void add(T element) {
         LinearNode<T> toAdd = new LinearNode<T>(element);
 
-        // noncomparable
         if (!(element instanceof Comparable)) {
             throw new NonComparableElementException(element.getClass().toString());
         }
 
         if (isEmpty()) {
-            head = toAdd; // why does size become 1?
+            head = toAdd;
             tail = toAdd;
         }
-
         if (size() == 1) {
-            // less than existing item, add before
+            // less than existing item
             if (((Comparable) element).compareTo(head.getElement()) < 0) {
-                System.out.println("add before " + ((Comparable) element).compareTo(head.getElement()));
                 toAdd.setNext(tail);
                 head = toAdd;
-            } else { // greater than or equal to existing item, add after
-                System.out.println("add after" + ((Comparable) element).compareTo(head.getElement()));
+            } else { // greater than or equal to existing item
                 head.setNext(toAdd);
                 tail = toAdd;
             }
@@ -78,11 +74,10 @@ public class LinkedOrderedList<T> extends LinkedList<T>
             }
             else {
                 toAdd.setNext(current);
-                if (previous == null) {
-
-                }
-                else {
+                try {
                     previous.setNext(toAdd);
+                } catch (NullPointerException e) {
+
                 }
             }
         }

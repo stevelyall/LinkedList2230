@@ -84,14 +84,12 @@ public class LinkedUnorderedList<T> extends LinkedList<T>
         LinearNode<T> toAdd = new LinearNode<T>(element);
 
         boolean found = false;
-        LinearNode<T> previous = null;
         LinearNode<T> current = head;
 
         while (current != null && !found) {
             if (target.equals(current.getElement()))
                 found = true;
             else {
-                previous = current;
                 current = current.getNext();
             }
         }
@@ -99,6 +97,7 @@ public class LinkedUnorderedList<T> extends LinkedList<T>
         if (!found) {
             throw new ElementNotFoundException("LinkedList");
         }
+
         // only one element in the list
         if (size() == 1) {
             head.setNext(toAdd);

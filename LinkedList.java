@@ -48,19 +48,17 @@ public abstract class LinkedList<T> implements ListADT<T>, Iterable<T>
             throw new EmptyCollectionException("LinkedList");
         }
 
-        // get first
         T toRemove = head.getElement();
 
-        // update ref to head
-        if (size() == 1) { // only one element in the list, list empty
+        if (size() == 1) {
             head = tail = null;
         }
-        else { // more than 1, next is head
+        else {
             head = head.getNext();
         }
         count--;
         modCount++;
-        //return the element
+
         return toRemove;
     }
    
@@ -79,8 +77,6 @@ public abstract class LinkedList<T> implements ListADT<T>, Iterable<T>
         if (isEmpty()) {
             throw new EmptyCollectionException("LinkedList");
         }
-
-
 
         LinearNode<T> previous = null;
         LinearNode<T> current = head;
@@ -139,8 +135,9 @@ public abstract class LinkedList<T> implements ListADT<T>, Iterable<T>
       
         if (size() == 1)  // only one element in the list
             head = tail = null;
-        else if (current.equals(head))  // target is at the head 
+        else if (current.equals(head)) { // target is at the head
             head = current.getNext();
+        }
         else if (current.equals(tail))  // target is at the tail
         {
             tail = previous;
@@ -187,7 +184,10 @@ public abstract class LinkedList<T> implements ListADT<T>, Iterable<T>
      * Returns true if the specified element is found in this list and 
      * false otherwise. Throws an EmptyCollectionException if the list 
   * is empty.
-     *
+     *  Complexity: O(n)
+     *  Precondition: The LinkedList object has been instantiated.
+     *  Postcondition: The list is unchanged.
+     * @author stevelyall
      * @param  targetElement the element that is sought in the list
      * @return true if the element is found in this list
      * @throws EmptyCollectionException if the list is empty
