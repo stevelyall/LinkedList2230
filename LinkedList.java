@@ -215,20 +215,14 @@ public abstract class LinkedList<T> implements ListADT<T>, Iterable<T>
 
     /**
      * Returns the number of elements in this list.
-     *  Complexity: O(n)
+     *  Complexity: O(1)
      *  Precondition: The LinkedList object has been instantiated.
      *  Postcondition: The list remains unchanged.
      * @author stevelyall
      * @return the number of elements in the list
      */
     public int size() {
-        LinearNode<T> current = head;
-        int numNodes = 0;
-        while (current != null) {
-            numNodes++;
-            current = current.getNext();
-        }
-        return numNodes;
+        return count;
     }
 
     /**
@@ -272,8 +266,8 @@ public abstract class LinkedList<T> implements ListADT<T>, Iterable<T>
   /**
    * Sets up this iterator using the specified items.
    *
-   * @param collection  the collection the iterator will move over
-   * @param size        the integer size of the collection
+//   * @param collection  the collection the iterator will move over
+//   * @param size        the integer size of the collection
    */
   public LinkedListIterator()
   {
