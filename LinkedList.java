@@ -38,6 +38,7 @@ public abstract class LinkedList<T> implements ListADT<T>, Iterable<T>
      *  Complexity: O(1)
      *  Precondition: The list is not empty.
      *  Postcondition: The first element in the list has been removed.
+     * @author stevelyall
      * @return a reference to the first element of this list
      * @throws EmptyCollectionException if the list is empty
      */
@@ -79,16 +80,25 @@ public abstract class LinkedList<T> implements ListADT<T>, Iterable<T>
             throw new EmptyCollectionException("LinkedList");
         }
 
+
+
+        LinearNode<T> previous = null;
         LinearNode<T> current = head;
 
-        // get element
-        T toRemove = tail.getElement();
-
-        // find new tail and update tail ref
-        while (current != null){
+        while (current != tail) {
+            previous = current;
             current = current.getNext();
         }
-        tail = current;
+
+        T toRemove = tail.getElement();
+
+        if (size() == 1) { // only one element in the list, list empty
+            head = tail = null;
+        }
+        else {
+            tail = previous;
+            tail.setNext(null);
+        }
         count--;
         modCount++;
         return toRemove;

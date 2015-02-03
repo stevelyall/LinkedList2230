@@ -1,11 +1,11 @@
 import exceptions.*;
 
 /**
- * LinkedList.java
- * <p/>
- * COMP 2230 Assignment 3 Question 1
+ * LinkedOrderedList.java
+ *
+ * COMP 2230 Assignment 3 Question 2
  * Steven Lyall (T00023594)
- * <p/>
+
  * LinkedOrderedList represents a singly linked implementation of an
  * ordered list.
  *
@@ -25,7 +25,10 @@ public class LinkedOrderedList<T> extends LinkedList<T>
      * Adds the specified element to this list at the location determined by
      * the element's natural ordering. Throws a NonComparableElementException
      * if the element is not comparable.
-     *
+     *  Complexity: O(n)
+     *  Precondition: The LinkedOrderedList object has been instantiated.
+     *  Postcondition: The list has an additional element.
+     * @author stevelyall
      * @param element the element to be added to this list
      * @throws NonComparableElementException if the element is not comparable
      */
@@ -59,8 +62,6 @@ public class LinkedOrderedList<T> extends LinkedList<T>
             LinearNode<T> previous = null;
             LinearNode<T> current = head;
 
-            // less than 0 if argument is greater
-            // greater than 0 is argument is less
             while (current != null && (((Comparable) toAdd.getElement()).compareTo(current.getElement()) > 0)) {
                 previous = current;
                 current = current.getNext();
